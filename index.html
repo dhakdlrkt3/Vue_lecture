@@ -8,9 +8,13 @@
 </head>
 <body>
     <div id="app">
-        <!-- 이벤트 수식어에서 리로드 되지않게 prevent 기능을 사용 -->
        <form v-on:submit.prevent="submit">
-           <input type="text"><br>
+           <input type="text" :value="text" @keyup="updateText"><br>
+           <!--
+                v-on: 은 @로 대체 가능
+                v-bind는 :만으로 대체 가능
+            -->
+           {{ text }}<br>
            <button type="submit">Submit</button>
         </form>
     </div>
@@ -18,7 +22,8 @@
         new Vue({
             el:'#app',
             data:{
-               year: 2018
+               year: 2018,
+               text: 'text'
             },
             methods:{
                 plus(){
@@ -30,6 +35,9 @@
                 submit(){
                     alert('submitted');
                     console.log('hello');
+                },
+                updateText(event){
+                    this.text = event.target.value;
                 }
             }
         })
