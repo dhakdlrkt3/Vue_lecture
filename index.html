@@ -8,37 +8,25 @@
 </head>
 <body>
     <div id="app">
-       <form v-on:submit.prevent="submit">
-           <!-- <input type="text" :value="text" @keyup="updateText"><br> -->
-           <!--
-               v-model = 
-               양방향 바인딩 기법
-            -->
-           <input type="text" v-model="text"><br>
-           {{ text }}<br>
-           <button type="submit">Submit</button>
-        </form>
+      {{ reversedMessage() }}
+      {{ reversedMessage() }}
+      {{ reversedMessage() }}
     </div>
     <script>
         new Vue({
             el:'#app',
             data:{
-               year: 2018,
-               text: 'text'
+             message: '헬로우'
             },
+            // 컴퓨티드 속성은 캐싱을 하고 메소드는 캐싱을 하지않음
             methods:{
-                plus(){
-                   this.year++;
-                },
-                minus(){
-                    this.year--;
-                },
-                submit(){
-                    alert('submitted');
-                    console.log('hello');
-                },
-                // updateText(event){
-                //     this.text = event.target.value;
+                reversedMessage(){
+                    return this.message.split('').reverse().join('');
+                }
+            },
+            computed:{
+                // reversedMessage(){
+                //     return this.message.split('').reverse().join('');
                 // }
             }
         })
