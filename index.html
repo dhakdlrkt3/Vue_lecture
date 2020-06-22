@@ -8,9 +8,11 @@
 </head>
 <body>
     <div id="app">
-        {{ year }} <br>
-        <button v-on:click="plus">더하기</button>
-        <button v-on:click="minus">빼기</button>
+        <!-- 이벤트 수식어에서 리로드 되지않게 prevent 기능을 사용 -->
+       <form v-on:submit.prevent="submit">
+           <input type="text"><br>
+           <button type="submit">Submit</button>
+        </form>
     </div>
     <script>
         new Vue({
@@ -24,6 +26,10 @@
                 },
                 minus(){
                     this.year--;
+                },
+                submit(){
+                    alert('submitted');
+                    console.log('hello');
                 }
             }
         })
