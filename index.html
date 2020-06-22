@@ -8,33 +8,22 @@
 </head>
 <body>
     <div id="app">
-        {{ nextYear('안녕') }}
-        <input :type="type" :value="inputData">
-        <!-- <input v-bind:type="type" v-bind:value="inputData">  v-bind 생략 하고 :만 넣어도 됨 -->
-        <a :href="getKossieCoderLink('kossiecoder')">유튜브 채널</a>
-        <button>Click Me</button>
+        {{ year }} <br>
+        <button v-on:click="plus">더하기</button>
+        <button v-on:click="minus">빼기</button>
     </div>
     <script>
         new Vue({
             el:'#app',
             data:{
-                person: {
-                name: '코지 코더',
-                age: 34
-                },
-                inputData: 'hello', //데이터 바인딩
-                type: 'text',
-                link: 'https://www.youtube.com/'
+               year: 2018
             },
             methods:{
-                getKossieCoderLink(channel){
-                    return this.link + channel;
+                plus(){
+                   this.year++;
                 },
-                nextYear(greeting){
-                    return greeting + '! ' + this.person.name + ' 는 내년에 ' + (this.person.age + 1) + '살 입니다.';
-                },
-                otherMethod: function(){
-                    this.nextYear();
+                minus(){
+                    this.year--;
                 }
             }
         })
