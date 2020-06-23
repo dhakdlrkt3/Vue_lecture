@@ -16,16 +16,15 @@
 </head>
 <body>
     <div id="app">
-        <!-- 클래스에 -가 있으면 클래스 이름에 '' 문자열 처리를 해줘야 함 -->
-       <div :class="{ red: isRed, 'font-bold': isBold }">Hello</div>
+       <div :style="{ color: red, fontSize: size }">Hello</div>
        <button @click="update">click</button>
     </div>
     <script>
         new Vue({
             el:'#app',
             data:{
-             isRed: false,
-             isBold: false
+             red: 'red',
+             size: '30px'
             },
             methods:{
                 update() {
