@@ -1,20 +1,29 @@
 <template>
   <div>
     <h1>This is home page</h1>
-    <!-- <KossieCoder title="home title" name="코지 코더"/> -->
-    <form>
+    <form action="">
+        <InputField :name="name" @update-name="updateName"/>
+      <br>
+      <button>Submit</button>
+    </form>
+    {{ name }}
   </div>
 </template>
 
 <script>
-import KossieCoder from '@/components/KossieCoder.vue';
+import InputField from '@/components/InputField.vue';
 export default {
-  components: {
-    KossieCoder
+  components:{
+    InputField
   },
   data(){
     return{
-      name: 'Kossie Coder'
+      name:''
+    }
+  },
+  methods:{
+    updateName(name){
+      this.name = name;
     }
   }
 }

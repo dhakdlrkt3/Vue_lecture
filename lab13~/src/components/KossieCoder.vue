@@ -28,6 +28,7 @@ export default {
     },
     methods: {
         updateName(){
+            // 자식이 부모에게서 오는 props 내용을 변경하지 않아야 함, 다이아몬드 문제
             this.name = 'Kossie Coder Updated';
         }
     }
