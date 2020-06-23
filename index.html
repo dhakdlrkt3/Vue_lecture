@@ -32,10 +32,14 @@
        <kossie-button></kossie-button>
     </div>
     <script>
+        Vue.component('hello-world',{
+            template: '<div>hello world</div>'
+        });
         Vue.component('kossie-button',{
             template: `
                 <div>
                     {{ name }}<br>
+                    <hello-world></hello-world>
                     <button @click="changeText">Click</button>
                 </div>
                 `,
