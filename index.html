@@ -16,35 +16,64 @@
 </head>
 <body>
     <div id="app">
-       {{ name }}<br>
+       <!-- {{ name }}<br>
        <button @click="changeText">Click</button>
+
+       <hr> -->
+
+       <kossie-button></kossie-button>
     </div>
+    <hr><hr>
     <div id="app-1">
-        {{ name }}<br>
+        <!-- {{ name }}<br>
         <button @click="changeText">Click</button>
+        <hr> -->
+
+       <kossie-button></kossie-button>
     </div>
     <script>
-        const app =  new Vue({
-            el:'#app',
-            data:{
-                name: 'kossie'
+        Vue.component('kossie-button',{
+            template: `
+                <div>
+                    {{ name }}<br>
+                    <button @click="changeText">Click</button>
+                </div>
+                `,
+            data() {
+                return{
+                    name: 'kossie'
+                }
+                
             },
             methods:{
                 changeText() {
-                    app1.name = 'kossie updated';
+                    this.name = 'kossie13 updated13';
                 }
-            }
+            },
+        });
+
+        const app =  new Vue({
+            el:'#app',
+            // data:{
+            //     name: 'kossie'
+            // },
+            // methods:{
+            //     changeText() {
+            //         this.name = 'kossie0 updated0';
+            //     }
+            // }
         })
+
         const app1 = new Vue({
             el: '#app-1',
-            data: {
-              name: 'kossie1'  
-            },
-            methods:{
-                changeText(){
-                    app.name = 'kossie1 updated';
-                }
-            }
+            // data: {
+            //   name: 'kossie1'  
+            // },
+            // methods:{
+            //     changeText(){
+            //         this.name = 'kossie2 updated2';
+            //     }
+            // }
         })
     </script>
 </body>
