@@ -8,9 +8,10 @@
 </head>
 <body>
     <div id="app">
-      {{ reversedMessage() }}
-      {{ reversedMessage() }}
-      {{ reversedMessage() }}
+        <button @click="changeMessage">Click</button>
+      {{ reversedMessage }}
+      {{ reversedMessage }}
+      {{ reversedMessage }}
     </div>
     <script>
         new Vue({
@@ -20,14 +21,14 @@
             },
             // 컴퓨티드 속성은 캐싱을 하고 메소드는 캐싱을 하지않음
             methods:{
-                reversedMessage(){
-                    return this.message.split('').reverse().join('');
+                changeMessage(){
+                    this.message = '코지코더';
                 }
             },
             computed:{
-                // reversedMessage(){
-                //     return this.message.split('').reverse().join('');
-                // }
+                reversedMessage(){
+                    return this.message.split('').reverse().join('');
+                }
             }
         })
     </script>
