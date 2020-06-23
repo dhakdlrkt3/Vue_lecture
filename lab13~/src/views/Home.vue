@@ -18,9 +18,35 @@ export default {
   },
   data(){
     return{
-      name:''
+      name:'Kossie Coder'
     }
+  },
+
+  beforeCreate(){
+    console.log('beforeCreate', this.name)
+  },
+  created(){
+    
+  },
+  beforeMount(){
+    
+  },
+  mounted(){
+
+  },
+  beforeUpdate(){
+    
+    
+  },
+  updated(){
+
+  },
+  destroyed(){
+
   }
+
+
+
 }
 </script>
 
