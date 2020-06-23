@@ -23,7 +23,7 @@
 
        <kossie-button></kossie-button>
     </div>
-    <hr><hr>
+     <hr><hr>
     <div id="app-1">
         <!-- {{ name }}<br>
         <button @click="changeText">Click</button>
@@ -32,10 +32,38 @@
        <kossie-button></kossie-button>
     </div>
     <script>
-        Vue.component('hello-world',{
-            template: '<div>hello world</div>'
-        });
-        Vue.component('kossie-button',{
+        // Vue.component('hello-world',{
+        //     template: '<div>hello world</div>'
+        // });
+        // Vue.component('kossie-button',{
+        //     template: `
+        //         <div>
+        //             {{ name }}<br>
+        //             <hello-world></hello-world>
+        //             <button @click="changeText">Click</button>
+        //         </div>
+        //         `,
+        //     data() {
+        //         return{
+        //             name: 'kossie'
+        //         }
+                
+        //     },
+        //     methods:{
+        //         changeText() {
+        //             this.name = 'kossie13 updated13';
+        //         }
+        //     },
+        // });
+
+        const HelloWorld = {
+            template: '<div>hello world</div>',
+        };
+        
+        const KossieButton = {
+            components:{
+                'hello-world': HelloWorld
+            },
             template: `
                 <div>
                     {{ name }}<br>
@@ -54,10 +82,13 @@
                     this.name = 'kossie13 updated13';
                 }
             },
-        });
+        }
 
         const app =  new Vue({
             el:'#app',
+            components:{
+                'kossie-button': KossieButton
+            }
             // data:{
             //     name: 'kossie'
             // },
@@ -70,13 +101,16 @@
 
         const app1 = new Vue({
             el: '#app-1',
-            // data: {
-            //   name: 'kossie1'  
-            // },
-            // methods:{
-            //     changeText(){
-            //         this.name = 'kossie2 updated2';
-            //     }
+            components:{
+                'kossie-button': KossieButton
+            }
+        //     data: {
+        //       name: 'kossie1'  
+        //     },
+        //     methods:{
+        //         changeText(){
+        //             this.name = 'kossie2 updated2';
+        //         }
             // }
         })
     </script>
