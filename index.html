@@ -16,45 +16,33 @@
 </head>
 <body>
     <div id="app">
-        <div>
-            {{ people[0].name}} {{ people[0].age }}
-       </div>
-        <div>
-            {{ people[1].name}} {{ people[1].age }}
-        </div>
-        <div>
-            {{ people[2].name}} {{ people[2].age }}
-        </div>
-        <div>
-            {{ people[3].name}} {{ people[3].age }}
-        </div>
-        <hr>
-        <!-- 
-            <div v-for="person of people"> 
-                    {{ person.name}} {{ person.age }}
-                of를 사용해도 되고 인덱스가 없어도 됨
-
-                엔티티가 유니크하다면 key를 사용하여 
-            -->
-        <div v-for="person, index in people" :key="id">
-            {{ person.name}} {{ person.age }} {{ id }}
-        </div>
+       {{ name }}<br>
+       <button @click="changeText">Click</button>
+    </div>
+    <div id="app-1">
+        {{ name }}<br>
+        <button @click="changeText">Click</button>
+    </div>
     <script>
-        new Vue({
+        const app =  new Vue({
             el:'#app',
             data:{
-                people:[
-                    { id: 1, name: 'a', age:20}, 
-                    { id: 2, name: 'b', age:21}, 
-                    { id: 3, name: 'c', age:22},
-                    { id: 4, name: 'd', age:23}, 
-                    { id: 5, name: 'e', age:24},
-                    { id: 6, name: 'e', age:25}, 
-                ]
+                name: 'kossie'
             },
             methods:{
-                Toggle() {
-                    this.show = !this.show;
+                changeText() {
+                    app1.name = 'kossie updated';
+                }
+            }
+        })
+        const app1 = new Vue({
+            el: '#app-1',
+            data: {
+              name: 'kossie1'  
+            },
+            methods:{
+                changeText(){
+                    app.name = 'kossie1 updated';
                 }
             }
         })
