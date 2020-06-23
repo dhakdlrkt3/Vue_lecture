@@ -8,18 +8,17 @@
 </head>
 <body>
     <div id="app">
-        <button @click="changeMessage">Click</button>
-      {{ reversedMessage }}
-      {{ reversedMessage }}
-      {{ reversedMessage }}
+        {{ message }}
+        <button @click="changeMessage">Click</button><br>
+        {{ updated }}
     </div>
     <script>
         new Vue({
             el:'#app',
             data:{
-             message: '헬로우'
+             message: '헬로우',
+             updated: '아니오'
             },
-            // 컴퓨티드 속성은 캐싱을 하고 메소드는 캐싱을 하지않음
             methods:{
                 changeMessage(){
                     this.message = '코지코더';
@@ -28,6 +27,11 @@
             computed:{
                 reversedMessage(){
                     return this.message.split('').reverse().join('');
+                }
+            },
+            watch:{
+                message(newVal, oldVal){
+                    console.log(newVal,oldVal);
                 }
             }
         })
